@@ -1583,11 +1583,11 @@ class MatrixBase(object):
 
         mat = self.jacobian(X)
         if mat.cols == mat.rows:
-            return mat.det()
+            return abs(mat.det())
         elif mat.cols > mat.rows:
-            return sqrt((mat*mat.T).det())
+            return abs(sqrt((mat*mat.T).det()))
         else:
-            return sqrt((mat.T*mat).det())
+            return abs(sqrt((mat.T*mat).det()))
 
     def QRdecomposition(self):
         """Return Q, R where A = Q*R, Q is orthogonal and R is upper triangular.
